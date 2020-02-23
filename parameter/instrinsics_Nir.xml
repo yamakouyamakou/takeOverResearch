@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<image_width>128</image_width>
+<image_height>128</image_height>
+<camera_matrix type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>3</cols>
+  <dt>d</dt>
+  <data>
+    1.2987778712657994e+03 0. 64. 0. 1.2782909685781619e+03 64. 0. 0. 1.</data></camera_matrix>
+<distortion_coeffs type_id="opencv-matrix">
+  <rows>1</rows>
+  <cols>5</cols>
+  <dt>d</dt>
+  <data>
+    -4.3326770673377615e+00 3.0605470870668034e+02 0. 0.
+    -6.0947251665444783e+03</data></distortion_coeffs>
+<r>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1673986164413721e+00 2.1696495369333033e+00
+      -7.4261900860584207e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1622735019888966e+00 2.1648492010623595e+00
+      -2.6618722810242440e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1723125099547111e+00 2.1705833292432279e+00
+      -1.5029614517846610e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1730455584825319e+00 2.1707136991818885e+00
+      -3.0387439538448014e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1575403953471444e+00 2.1535035162135041e+00
+      -2.0552067619720751e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1615445642668982e+00 2.1564606606312355e+00
+      -2.2563232447953198e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1800219545122985e+00 2.1775175893465848e+00
+      -1.7034506475196637e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1556599161487746e+00 2.1564623013813753e+00
+      -6.2721438385710981e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1648526344622119e+00 2.1614433470241528e+00
+      -2.5980972135989037e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1565004371039782e+00 2.1577860639078139e+00
+      -3.4565666386507779e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1655502037043992e+00 2.1621413171096715e+00
+      -3.6232016697862884e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1658137098101373e+00 2.1686716028024726e+00
+      -4.8948223505619962e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1618452745412644e+00 2.1531080113045005e+00
+      -3.1149919793122052e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1575100371652032e+00 2.1573626155799452e+00
+      -6.7561620740655998e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1530066027977446e+00 2.1505940625303253e+00
+      -2.5798137559542189e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1652708168683641e+00 2.1652310069140888e+00
+      -1.2677128813803271e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1611375095276770e+00 2.1590046359810549e+00
+      -2.6637494491127275e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1687513960319982e+00 2.1646388360956159e+00
+      -7.2142894745271094e-02</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1598870372363974e+00 2.1589826999391537e+00
+      8.5804396521110635e-03</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      -2.1644047159246336e+00 2.1648659164447004e+00
+      -2.3834059369956549e-02</data></_></r>
+<t>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7478152261400037e-01 1.1829601610258575e-01
+      1.3095279903513004e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7464694976712111e-01 1.1750499376344734e-01
+      1.3088102492277269e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7456340737049056e-01 1.1844881421153829e-01
+      1.3088207119500721e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7450589713526757e-01 1.1843183747299788e-01
+      1.3079123306814591e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7441435617992629e-01 1.1833071076717912e-01
+      1.3078293879812808e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7457467540624638e-01 1.1880743937142667e-01
+      1.3100612042455630e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7471172302357119e-01 1.1806127859747106e-01
+      1.3076888955429244e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7434210677712783e-01 1.1816526490575115e-01
+      1.3088329283233022e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7458390565454671e-01 1.1857299279608390e-01
+      1.3084563105801812e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7456314594302902e-01 1.1822649854496520e-01
+      1.3095627505042573e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7441321853571032e-01 1.1837416128759128e-01
+      1.3083754058834249e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7479275997158783e-01 1.1807793934923076e-01
+      1.3076019609780238e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7438956060116542e-01 1.1891054613681824e-01
+      1.3105277961358623e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7434717005075751e-01 1.1826364922700994e-01
+      1.3071019966264148e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7452772075207512e-01 1.1823166663878144e-01
+      1.3110365766968461e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7482019397803211e-01 1.1833901291936831e-01
+      1.3110889336385236e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7452430414185433e-01 1.1831689052967721e-01
+      1.3098717628776912e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7446785197363796e-01 1.1870443681706852e-01
+      1.3085838992440455e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7451004842092796e-01 1.1787803637879042e-01
+      1.3094602212963078e+00</data></_>
+  <_ type_id="opencv-matrix">
+    <rows>3</rows>
+    <cols>1</cols>
+    <dt>d</dt>
+    <data>
+      1.7479107754596310e-01 1.1837931050475575e-01
+      1.3081108925750633e+00</data></_></t>
+</opencv_storage>
