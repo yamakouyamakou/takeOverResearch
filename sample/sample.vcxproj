@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FEF658B9-332A-4056-B288-1E89901D3D26}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>sample</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CLRSupport>true</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\dev\opencv346_win32\install\include;C:\Program Files %28x86%29\Intel RealSense SDK 2.0\include;C:\dev\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731;C:\Users\yamak\source\repos\jedi2;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\opencv346_win32\install\x86\vc15\lib;C:\Program Files %28x86%29\Intel RealSense SDK 2.0\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\dev\opencv346_win32\install\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\opencv346_win32\install\x86\vc15\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\dev\opencv346_win32\install\include;C:\Program Files %28x86%29\Intel RealSense SDK 2.0\include;C:\dev\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731;C:\Users\yamak\source\repos\jedi2;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\opencv346_win32\install\x86\vc15\lib;C:\Program Files %28x86%29\Intel RealSense SDK 2.0\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\dev\opencv346_win32\install\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\dev\opencv346_win32\install\x86\vc15\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>C:\dev\opencv346_win32\install\include;C:\Program Files %28x86%29\Intel RealSense SDK 2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_aruco346.lib;opencv_xphoto346d.lib;opencv_xphoto346.lib;opencv_xobjdetect346d.lib;opencv_xobjdetect346.lib;opencv_ximgproc346d.lib;opencv_ximgproc346.lib;opencv_xfeatures2d346d.lib;opencv_xfeatures2d346.lib;opencv_videostab346d.lib;opencv_videostab346.lib;opencv_videoio346d.lib;opencv_videoio346.lib;opencv_video346d.lib;opencv_video346.lib;opencv_tracking346d.lib;opencv_tracking346.lib;opencv_text346d.lib;opencv_text346.lib;opencv_surface_matching346d.lib;opencv_surface_matching346.lib;opencv_superres346d.lib;opencv_superres346.lib;opencv_structured_light346d.lib;opencv_structured_light346.lib;opencv_stitching346d.lib;opencv_stitching346.lib;opencv_stereo346d.lib;opencv_stereo346.lib;opencv_shape346d.lib;opencv_shape346.lib;opencv_saliency346d.lib;opencv_saliency346.lib;opencv_rgbd346d.lib;opencv_rgbd346.lib;opencv_reg346d.lib;opencv_reg346.lib;opencv_plot346d.lib;opencv_plot346.lib;opencv_photo346d.lib;opencv_photo346.lib;opencv_phase_unwrapping346d.lib;opencv_phase_unwrapping346.lib;opencv_optflow346d.lib;opencv_optflow346.lib;opencv_objdetect346d.lib;opencv_objdetect346.lib;opencv_ml346d.lib;opencv_ml346.lib;opencv_line_descriptor346d.lib;opencv_line_descriptor346.lib;opencv_imgproc346d.lib;opencv_imgproc346.lib;opencv_imgcodecs346d.lib;opencv_imgcodecs346.lib;opencv_img_hash346d.lib;opencv_img_hash346.lib;opencv_highgui346d.lib;opencv_highgui346.lib;opencv_hfs346d.lib;opencv_hfs346.lib;opencv_fuzzy346d.lib;opencv_fuzzy346.lib;opencv_flann346d.lib;opencv_flann346.lib;opencv_features2d346d.lib;opencv_features2d346.lib;opencv_face346d.lib;opencv_face346.lib;opencv_dpm346d.lib;opencv_dpm346.lib;opencv_dnn346d.lib;opencv_dnn346.lib;opencv_dnn_objdetect346d.lib;opencv_dnn_objdetect346.lib;opencv_datasets346d.lib;opencv_datasets346.lib;opencv_core346d.lib;opencv_core346.lib;opencv_ccalib346d.lib;opencv_ccalib346.lib;opencv_calib3d346d.lib;opencv_calib3d346.lib;opencv_bioinspired346d.lib;opencv_bioinspired346.lib;opencv_bgsegm346d.lib;opencv_bgsegm346.lib;opencv_aruco346d.lib;realsense2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>C:\dev\opencv346_win32\install\include;C:\Program Files %28x86%29\Intel RealSense SDK 2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_aruco346.lib;opencv_xphoto346d.lib;opencv_xphoto346.lib;opencv_xobjdetect346d.lib;opencv_xobjdetect346.lib;opencv_ximgproc346d.lib;opencv_ximgproc346.lib;opencv_xfeatures2d346d.lib;opencv_xfeatures2d346.lib;opencv_videostab346d.lib;opencv_videostab346.lib;opencv_videoio346d.lib;opencv_videoio346.lib;opencv_video346d.lib;opencv_video346.lib;opencv_tracking346d.lib;opencv_tracking346.lib;opencv_text346d.lib;opencv_text346.lib;opencv_surface_matching346d.lib;opencv_surface_matching346.lib;opencv_superres346d.lib;opencv_superres346.lib;opencv_structured_light346d.lib;opencv_structured_light346.lib;opencv_stitching346d.lib;opencv_stitching346.lib;opencv_stereo346d.lib;opencv_stereo346.lib;opencv_shape346d.lib;opencv_shape346.lib;opencv_saliency346d.lib;opencv_saliency346.lib;opencv_rgbd346d.lib;opencv_rgbd346.lib;opencv_reg346d.lib;opencv_reg346.lib;opencv_plot346d.lib;opencv_plot346.lib;opencv_photo346d.lib;opencv_photo346.lib;opencv_phase_unwrapping346d.lib;opencv_phase_unwrapping346.lib;opencv_optflow346d.lib;opencv_optflow346.lib;opencv_objdetect346d.lib;opencv_objdetect346.lib;opencv_ml346d.lib;opencv_ml346.lib;opencv_line_descriptor346d.lib;opencv_line_descriptor346.lib;opencv_imgproc346d.lib;opencv_imgproc346.lib;opencv_imgcodecs346d.lib;opencv_imgcodecs346.lib;opencv_img_hash346d.lib;opencv_img_hash346.lib;opencv_highgui346d.lib;opencv_highgui346.lib;opencv_hfs346d.lib;opencv_hfs346.lib;opencv_fuzzy346d.lib;opencv_fuzzy346.lib;opencv_flann346d.lib;opencv_flann346.lib;opencv_features2d346d.lib;opencv_features2d346.lib;opencv_face346d.lib;opencv_face346.lib;opencv_dpm346d.lib;opencv_dpm346.lib;opencv_dnn346d.lib;opencv_dnn346.lib;opencv_dnn_objdetect346d.lib;opencv_dnn_objdetect346.lib;opencv_datasets346d.lib;opencv_datasets346.lib;opencv_core346d.lib;opencv_core346.lib;opencv_ccalib346d.lib;opencv_ccalib346.lib;opencv_calib3d346d.lib;opencv_calib3d346.lib;opencv_bioinspired346d.lib;opencv_bioinspired346.lib;opencv_bgsegm346d.lib;opencv_bgsegm346.lib;opencv_aruco346d.lib;realsense2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <AdditionalLibraryDirectories />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\BitranCCDlib.h" />
+    <ClInclude Include="cvwin.hpp" />
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="rs.h" />
+    <ClInclude Include="Stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="cvwin.cpp" />
+    <ClCompile Include="histogramNormalization.cpp" />
+    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="nirAndRs.cpp" />
+    <ClCompile Include="realSense.cpp" />
+    <ClCompile Include="Stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico" />
+    <Image Include="statusBarBack.ico" />
+    <Image Include="statusBarFirst.ico" />
+    <Image Include="statusBarLast.ico" />
+    <Image Include="statusBarPlay.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

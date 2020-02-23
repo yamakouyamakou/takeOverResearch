@@ -1,0 +1,7 @@
+﻿  Stdafx.cpp
+  AssemblyInfo.cpp
+c:\users\yamak\source\repos\clr_nir2 - コピー\sample\assemblyinfo.cpp(40): warning C4947: 'System::Security::Permissions::SecurityAction::RequestMinimum': 古い形式に設定されています。
+  c:\users\yamak\source\repos\clr_nir2 - コピー\sample\assemblyinfo.cpp(40): note: メッセージ: 'Assembly level declarative security is obsolete and is no longer enforced by the CLR by default. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.'
+  MyForm.cpp
+c:\users\yamak\source\repos\clr_nir2 - コピー\sample\myform.h(4): fatal error C1083: include ファイルを開けません。'stdio.h':No such file or directory
+  コードを生成中...
