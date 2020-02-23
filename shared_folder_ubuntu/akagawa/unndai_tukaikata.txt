@@ -1,0 +1,36 @@
+<使い方>
+1，端末を３つ開く
+
+2，端末１でroscore
+
+3,端末２で
+　デバイス確認：ls /dev/ttyACM*
+	/dev/ttyACM0とか出力される
+
+4，そのデバイスに権限を付与
+	sudo chmod a+rw /dev/ttyACM0
+
+5, rosserialを立ち上げる
+	rosrun rosserial_python serial_node.py /dev/ttyACM0
+
+6, 端末3で動かす
+	rostopic pub servo std_msgs/Int16  360
+	もう一度動かすときは
+	ctrl + c
+	↓
+	rostopic pub servo std_msgs/Int16  360
+
+7,角度を見るには　rostopic degree
+
+
+-------------------------------------------------
+
+rosrun pan_read pan_listner
+
+rostopic echo /degree
+
+-----------------------------------------------
+
+//https://qiita.com/nnn112358/items/059487952eb3f9a5489b
+
+

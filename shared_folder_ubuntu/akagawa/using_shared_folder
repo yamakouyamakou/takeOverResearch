@@ -1,0 +1,44 @@
+http://verifiedby.me/adiary/082
+
+以下のコマンドで、/mnt/hgfs を一時的にマウントする
+sudo vmhgfs-fuse -o allow_other -o auto_unmount .host:/ /mnt/hgfs
+
+永続的には、/etc/fstabで
+.host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,auto_unmount,defaults 0 0
+
+---------------------------------------------------
+
+https://dan-go.hatenablog.com/entry/2018/04/12/091049
+
+/etc/fstab内の書き方をおさらいしておくと、、 
+
+/dev/mapper/vg_data-lv_data　 /database 　ext4　 defaults 　0 　0
+
+ 
+
+1列目・・・デバイス名 
+2列目・・・マウントポイント 
+3列目・・・ファイルシステムタイプ
+4列目・・・マウント時のオプション 
+5列目・・・ファイルシステムをdumpするか否かの指定
+6列目・・・システム起動時にfsckチェックを行うか否かの指定
+
+
+
+-----------------------------------------------------
+入力モードをescで抜ける
+コマンドモードで下記を実行
+
+:w !sudo tee %
+その後に、強制脱出装置
+
+:q!
+上書きできてる！
+
+---------------------------------------------------
+
+//std::ifstream fs4("shared_folder_ubuntu\\test.txt");
+			//double a;
+			//fs4 >> a;
+			//std::cout << "a = " << a << std::endl;
+			//Rd.at<double>(0, 1) = a;

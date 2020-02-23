@@ -1,0 +1,14 @@
+%YAML:1.0
+---
+
+R: !!opencv-matrix
+   rows: 3
+   cols: 1
+   dt: d
+   data: [ 9.0, 1.0,  0.0 ]#[ pitch, yaw, roll ]
+T: !!opencv-matrix
+   rows: 3
+   cols: 1
+   dt: d
+   data: [ -3.3531841600410944e-01, -2.3548903212133447e-03,
+       1.2798481483608057e-01 ]
