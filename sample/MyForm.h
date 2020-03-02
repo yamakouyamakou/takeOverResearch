@@ -58,9 +58,7 @@ void removeToFar();
 void testFileStorage();
 void calicTest();
 
-//#include "pch.h"
-//#include<cv-helpers.hpp>//realsense‚Ì‚Ù‚¤
-
+void estimateWater();
 
 namespace sample {
 	
@@ -280,6 +278,7 @@ private: System::Windows::Forms::ComboBox^  comboBox1;
 private: System::Windows::Forms::Button^  button12;
 private: System::Windows::Forms::GroupBox^  groupBox3;
 private: System::Windows::Forms::GroupBox^  groupBox2;
+private: System::Windows::Forms::Button^  button2;
 
 		 //private: System::Windows::Forms::Button^  calibreat;
 
@@ -366,6 +365,7 @@ private: System::Windows::Forms::GroupBox^  groupBox2;
 			this->pictureImage2 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PictureImage))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ShutterTime))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->statusBarInfo))->BeginInit();
@@ -1036,16 +1036,27 @@ private: System::Windows::Forms::GroupBox^  groupBox2;
 			// 
 			// groupBox3
 			// 
+			this->groupBox3->Controls->Add(this->button2);
 			this->groupBox3->Controls->Add(this->button9);
 			this->groupBox3->Controls->Add(this->button10);
 			this->groupBox3->Controls->Add(this->button11);
 			this->groupBox3->Location = System::Drawing::Point(366, 334);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(387, 99);
+			this->groupBox3->Size = System::Drawing::Size(387, 123);
 			this->groupBox3->TabIndex = 31;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"coordinate transform realsense to nir";
 			this->groupBox3->Enter += gcnew System::EventHandler(this, &MyForm::groupBox3_Enter);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(16, 93);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(129, 23);
+			this->button2->TabIndex = 46;
+			this->button2->Text = L"estimateWater";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click_1);
 			// 
 			// MyForm
 			// 
@@ -2174,6 +2185,12 @@ private: System::Void button12_Click(System::Object^  sender, System::EventArgs^
 
 
 private: System::Void groupBox3_Enter(System::Object^  sender, System::EventArgs^  e) {
+}
+
+
+
+private: System::Void button2_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	estimateWater();
 }
 
 

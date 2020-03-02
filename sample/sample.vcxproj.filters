@@ -56,6 +56,9 @@
     <ClCompile Include="histogramNormalization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="estinateWater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

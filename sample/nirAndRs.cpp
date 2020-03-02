@@ -1117,9 +1117,7 @@ void getNirPanTilt()
 
 //bagFile使って1フレームから座標変換
 double cordiTransBagFile() {
-	std::string targetFolder = "5";
-	std::string date = "20200119";
-	//std::string date = "20200120";
+	
 	//////////////////////////////////////////   NIR    ////////////////////////////////
 	cv::Mat nirCamMat, nirDistCoeffs;
 	cv::FileStorage fs0("parameter\\instrinsics_Nir.xml", cv::FileStorage::READ);
@@ -1175,6 +1173,10 @@ double cordiTransBagFile() {
 	int i = 0;
 	int number = 0;
 	char key;	
+
+	std::string targetFolder = "5";
+	std::string date = "20200119";
+	//std::string date = "20200120";
 	std::string file_name = "data\\"+date+"\\"+targetFolder+"\\"+targetFolder+".bag";
 	std::string output_names = "Outputs";
 	rs2::pipeline pipe;

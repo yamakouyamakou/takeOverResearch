@@ -1,43 +1,7 @@
-﻿  realSense.cpp
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\realsense.cpp(42): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\realsense.cpp(164): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\realsense.cpp(444): warning C4804: '>=': 演算中の 'bool' 型の使用方法が安全ではありません
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\realsense.cpp(484): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\realsense.cpp(485): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\realsense.cpp(527): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\realsense.cpp(350): warning C4101: 'last_captured_timestamp': ローカル変数は 1 度も使われていません。
-c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(105): warning C4793: cv::cuda::GpuMat::GpuMat': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(395): warning C4793: cv::cuda::HostMem::HostMem': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(561): warning C4793: cv::Mat::Mat': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(885): warning C4793: cv::Mat::release': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(2221): warning C4793: cv::SparseMat::addref': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(3821): warning C4793: cv::UMat::addref': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\ptr.inl.hpp(67): warning C4793: cv::detail::PtrOwner::incRef': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\ptr.inl.hpp(72): warning C4793: cv::detail::PtrOwner::decRef': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731\eigen\src\core\arch\sse\packetmath.h(307): warning C4793: Eigen::internal::pload<__m128d>': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731\eigen\src\core\arch\sse\packetmath.h(336): warning C4793: Eigen::internal::ploadu<__m128d>': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731\eigen\src\core\arch\sse\packetmath.h(307): warning C4793: Eigen::internal::pload<__m128d>': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731\eigen\src\core\arch\sse\packetmath.h(336): warning C4793: Eigen::internal::ploadu<__m128d>': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731\eigen\src\core\arch\sse\packetmath.h(226): warning C4793: Eigen::internal::pmul<__m128d>': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(657): warning C4793: cv::String::operator=': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
-c:\dev\eigen-eigen-323c052e1731\eigen-eigen-323c052e1731\eigen\src\core\arch\sse\packetmath.h(362): warning C4793: Eigen::internal::pstoreu<double,__m128d>': ネイティブ関数としてコンパイルされました:
-  	マネージド コードでサポートされていない組み込み型が見つかりました
+﻿  estinateWater.cpp
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4005: '__CLR_VER': マクロが再定義されました。
+  c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\stdafx.cpp: note: '__CLR_VER' の以前の定義を確認してください
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4651: '/D__CLR_VER=40804121' がプリコンパイル済みヘッダーに定義されていますが、現在のコンパイル処理には定義されていません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000016) ('rs2_error') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000040) ('rs2_error') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000040) ('rs2_error') です。イメージを実行できません。

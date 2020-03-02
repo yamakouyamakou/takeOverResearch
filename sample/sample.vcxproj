@@ -175,6 +175,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="cvwin.cpp" />
+    <ClCompile Include="estinateWater.cpp" />
     <ClCompile Include="histogramNormalization.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="nirAndRs.cpp" />
