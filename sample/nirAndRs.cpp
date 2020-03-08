@@ -1174,7 +1174,7 @@ double cordiTransBagFile() {
 	int number = 0;
 	char key;	
 
-	std::string targetFolder = "5";
+	std::string targetFolder = "1";
 	std::string date = "20200119";
 	//std::string date = "20200120";
 	std::string file_name = "data\\"+date+"\\"+targetFolder+"\\"+targetFolder+".bag";
@@ -1405,8 +1405,8 @@ double cordiTransBagFile() {
 					cv::imshow("nir"+std::to_string(n), nir);
 					cv::imshow("transedImg.png", transedImg);
 					cv::imshow("checkList.png", checkList);
-					cv::imwrite("data\\"+date+targetFolder+"checkList.png", checkList);
-					cv::imwrite("data\\" + date + targetFolder + "transedImg.png", transedImg);
+					cv::imwrite("data\\"+date+"\\"+targetFolder+"\\checkList.png", checkList);
+					cv::imwrite("data\\" + date +"\\"+ targetFolder + "\\transedImg.png", transedImg);
 					cv::waitKey(500);
 					n++;
 				}
@@ -1465,46 +1465,67 @@ double stoi(std::string str) { // stoi関数の定義
 //3次元情報のぶっ飛んだ値を消す
 void removeToFar(std::string n) { // csvファイルのインポート
 	
-	std::ifstream ifs("data\\20200119\\"+n+"\\transedNir.csv");
+	std::ifstream ifs("data\\20200119\\" + n + "\\rsRGB.csv");
+	//std::ifstream ifs("data\\20200119\\" + n + "\\transedNir.csv");
 	//std::ifstream ifs("C:\\Users\\yamak\\Documents\\laboratory\\experiment\\nir統合\\aligned\\removeNoise" + n + ".csv");
+
+	std::ofstream pcNir("data\\20200119\\" + n + "\\removedTransedNir.csv");
+	std::ofstream pcRs("data\\20200119\\" + n + "\\removedRs.csv");
+	//std::ofstream pc("C:\\Users\\yamak\\Documents\\laboratory\\experiment\\nir統合\\aligned\\removeNoise" + n + "-2.csv");
+	
+	cv::Mat removedNirImg = cv::Mat::zeros(720, 1280, CV_8UC1);
+	cv::Mat removedRsImg = cv::Mat::zeros(720, 1280, CV_8UC3);
+	cv::Mat removedRsgrayImg = cv::Mat::zeros(720, 1280, CV_8UC1);
+	cv::Mat nir = cv::imread("data\\20200119\\" + n + "\\transedImg.png", 0);
+	cv::Mat rs = cv::imread("data\\20200119\\" + n + "\\color.png");
+	cv::Mat rsgray = cv::imread("data\\20200119\\" + n + "\\color.png", 0);
+
 	std::string line;
 	int i;
 	i = 0;
-
-	std::ofstream pc("data\\20200119\\"+n+"\\removedTransedNir.csv");
-	//std::ofstream pc("C:\\Users\\yamak\\Documents\\laboratory\\experiment\\nir統合\\aligned\\removeNoise" + n + "-2.csv");
-	
-	cv::Mat removedRsImg = cv::Mat::zeros(720, 1280, CV_8UC1);
-
 	std::cout << "start brending\n";
 	while (std::getline(ifs, line)) {  //第１引数に入力ストリームを指定し、第２引数に受取り用の std::basic_string の変数を指定します。
-		int x = i % removedRsImg.cols;
-		int y = i / removedRsImg.cols;
+		int x = i % removedNirImg.cols;
+		int y = i / removedNirImg.cols;
 		//std::cout << "( y, x ) = (" << y << ", " << x << ")\n";
-		std::cout << "line1 = " <<line<<"\n";
+		//std::cout << "line1 = " <<line<<"\n";
 
-		double num1, num2, num3,num4;
+		double num1, num2, num3,num4,num5,num6;
 		replace(line.begin(), line.end(), ',', ' ');
 		std::istringstream iss(line);
-		iss >> num1 >> num2 >> num3>>num4;
-		//std::cout << "num1=" << num1 << ", num2=" << num2 << ", num3=" << num3 << ", num4=" << num4 << std::endl;
+		iss >> num1 >> num2 >> num3>>num4 >> num5 >> num6;
+		//std::cout << "num1=" << num1 << ", num2=" << num2 << ", num3=" << num3 << ", num4=" << num4 << ", num5=" << num5 << ", num6=" << num6 << std::endl;
 
-		if (num3<3) {
-			pc << num1 << "," << num2 << "," << num3 <<","<< num4<< "," << num4 << "," << num4 << std::endl;
-			//removedRsImg.at<uchar>(y, x) = num4;
+		if (num3<3 && num3>0) { 
+			//pcNir << num1 << "," << num2 << "," << num3 << "," << num4 << "," << num4 << "," << num4 << std::endl;
+			pcNir << num1 << "," << num2 << "," << num3 << "," << int(nir.at<uchar>(y, x)) << "," << int(nir.at<uchar>(y, x)) << "," << int(nir.at<uchar>(y, x)) << std::endl;
+			pcRs << num1 << "," << num2 << "," << num3 << "," << num4 << "," << num5 << "," << num6 << "," << std::endl;
+			removedNirImg.at<uchar>(y, x) = nir.at<uchar>(y, x);
+			removedRsImg.at<cv::Vec3b>(y, x)[0] = rs.at<cv::Vec3b>(y, x)[0];
+			removedRsImg.at<cv::Vec3b>(y, x)[1] = rs.at<cv::Vec3b>(y, x)[1];
+			removedRsImg.at<cv::Vec3b>(y, x)[2] = rs.at<cv::Vec3b>(y, x)[2];
+			removedRsgrayImg.at<uchar>(y, x) = rsgray.at<uchar>(y, x);
 		}
 		else {
-			//removedRsImg.at<uchar>(y, x) = 255;
+			removedNirImg.at<uchar>(y, x) = 255;
+			removedRsImg.at<cv::Vec3b>(y, x)[0] = 255;
+			removedRsImg.at<cv::Vec3b>(y, x)[1] = 255;
+			removedRsImg.at<cv::Vec3b>(y, x)[2] = 255;
+			removedRsgrayImg.at<uchar>(y, x) = 255;
 		}
 
 		//pc << num1 << "," << num2 << "," << num3 <<","<< int(img.at<uchar>(y, x))<<"," << int(img.at<uchar>(y, x)) << "," << int(img.at<uchar>(y, x)) << std::endl;
 		i++;
-		//cv::imshow("removedRsImg", removedRsImg);
+		//cv::imshow("removedNirImg", removedNirImg);
 		//cv::waitKey(1);
 	}
 	std::cout << "i = " << i << std::endl;
-	//cv::imshow("removedRsImg", removedRsImg);
-	//cv::imwrite("data\\20200119\\" + n + "removedRsImg.png", removedRsImg);
+	cv::imshow("removedNirImg", removedNirImg);
+	cv::imshow("removedRsImg", removedRsImg);
+	cv::imshow("removedRsgrayImg", removedRsgrayImg);
+	cv::imwrite("data\\20200119\\" + n + "\\removedNirImg.png", removedNirImg);
+	cv::imwrite("data\\20200119\\" + n + "\\removedRsImg.png", removedRsImg);
+	cv::imwrite("data\\20200119\\" + n + "\\removedRsgrayImg.png", removedRsgrayImg);
 	std::cout << "finish import\n ";
 
 }

@@ -285,6 +285,7 @@ private: System::Windows::Forms::GroupBox^  groupBox3;
 private: System::Windows::Forms::GroupBox^  groupBox2;
 private: System::Windows::Forms::Button^  button2;
 private: System::Windows::Forms::ComboBox^  comboBox2;
+private: System::Windows::Forms::Button^  button3;
 
 		 //private: System::Windows::Forms::Button^  calibreat;
 
@@ -373,6 +374,7 @@ private: System::Windows::Forms::ComboBox^  comboBox2;
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PictureImage))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ShutterTime))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->statusBarInfo))->BeginInit();
@@ -479,7 +481,7 @@ private: System::Windows::Forms::ComboBox^  comboBox2;
 			// 
 			// button10
 			// 
-			this->button10->Location = System::Drawing::Point(296, 41);
+			this->button10->Location = System::Drawing::Point(359, 14);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(135, 43);
 			this->button10->TabIndex = 44;
@@ -1043,6 +1045,7 @@ private: System::Windows::Forms::ComboBox^  comboBox2;
 			// 
 			// groupBox3
 			// 
+			this->groupBox3->Controls->Add(this->button3);
 			this->groupBox3->Controls->Add(this->comboBox2);
 			this->groupBox3->Controls->Add(this->button2);
 			this->groupBox3->Controls->Add(this->button9);
@@ -1050,7 +1053,7 @@ private: System::Windows::Forms::ComboBox^  comboBox2;
 			this->groupBox3->Controls->Add(this->button11);
 			this->groupBox3->Location = System::Drawing::Point(322, 334);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(474, 123);
+			this->groupBox3->Size = System::Drawing::Size(503, 123);
 			this->groupBox3->TabIndex = 31;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"coordinate transform realsense to nir";
@@ -1060,7 +1063,7 @@ private: System::Windows::Forms::ComboBox^  comboBox2;
 			// 
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(6) { L"1", L"2", L"3", L"4", L"5", L"getHist" });
-			this->comboBox2->Location = System::Drawing::Point(310, 12);
+			this->comboBox2->Location = System::Drawing::Point(210, 28);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(121, 23);
 			this->comboBox2->TabIndex = 47;
@@ -1069,13 +1072,23 @@ private: System::Windows::Forms::ComboBox^  comboBox2;
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(296, 90);
+			this->button2->Location = System::Drawing::Point(359, 63);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(129, 23);
 			this->button2->TabIndex = 46;
 			this->button2->Text = L"estimateWater";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click_1);
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(359, 93);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(129, 23);
+			this->button3->TabIndex = 48;
+			this->button3->Text = L"convCordiBagFile";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click_1);
 			// 
 			// MyForm
 			// 
@@ -2138,6 +2151,22 @@ private: System::Windows::Forms::ComboBox^  comboBox2;
 				num = "1";
 				removeToFar(num);
 				break;
+			case 1:
+				num = "2";
+				removeToFar(num);
+				break;
+			case 2:
+				num = "3";
+				removeToFar(num);
+				break;
+			case 3:
+				num = "4";
+				removeToFar(num);
+				break;
+			case 4:
+				num = "5";
+				removeToFar(num);
+				break;
 			}
 		}
 
@@ -2245,6 +2274,32 @@ private: System::Void button2_Click_1(System::Object^  sender, System::EventArgs
 
 
 
+private: System::Void button3_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	std::string num;
+	switch (comboBox2->SelectedIndex)
+	{
+	case 0:
+		num = "1";
+		cordiTransBagFile();
+		break;
+	case 1:
+		num = "2";
+		cordiTransBagFile();
+		break;
+	case 2:
+		num = "3";
+		cordiTransBagFile();
+		break;
+	case 3:
+		num = "4";
+		cordiTransBagFile();
+		break;
+	case 4:
+		num = "5";
+		cordiTransBagFile();
+		break;
+	}
+}
 };
 
 	

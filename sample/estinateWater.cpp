@@ -9,38 +9,46 @@
 
 
 void estimateWater(std::string num){
-	std::cout << "test\n";
 
 	std::string date = "20200119";
-	//std::string num = "1";
 
-	cv::Mat rs = cv::imread("data\\"+date+"\\"+num+"\\color.png");
+	//cv::Mat rs = cv::imread("data\\" + date + "\\" + num + "\\color.png");
+	cv::Mat rs = cv::imread("data\\" + date + "\\" + num + "\\removedRsImg.png");
 	
-	cv::Mat grayRs;
-	cvtColor(rs,grayRs,CV_RGB2GRAY);
+	cv::Mat grayRs = cv::imread("data\\" + date + "\\" + num + "\\removedRsgrayImg.png", 0);
+	//cv::Mat grayRs = cv::imread("data\\" + date + "\\" + num + "\\gray.png", 0);
 
-	cv::Mat nir = cv::imread("data\\" + date + "\\" + num + "\\transedImg.png");
+	//cv::Mat nir = cv::imread("data\\" + date + "\\" + num + "\\transedImg.png",0);
+	cv::Mat nir = cv::imread("data\\" + date + "\\" + num + "\\removedNirImg.png",0);
 
 	///////////////////////////////////////////////////////////////////////////
-	cv::Mat normalized = cv::Mat::zeros(cv::Size(1280,702), CV_8UC1);
-	cv::normalize(nir, normalized, 0, 255, CV_MINMAX);
+	//cv::Mat normalized = cv::Mat::zeros(cv::Size(1280,702), CV_8UC1);
+	//cv::normalize(nir, normalized, 0, 255, CV_MINMAX);
 	
-	cv::Point max_pt;
-	double maxVal;
-	cv::minMaxLoc(grayRs, NULL, &maxVal, NULL, &max_pt);
-	std::cout << "maxVal = " << maxVal << std::endl;
+	//cv::Point max_pt;
+	//double maxVal;
+	//cv::minMaxLoc(grayRs, NULL, &maxVal, NULL, &max_pt);
+	//std::cout << "maxVal = " << maxVal << std::endl;
 	
 	for (int limen = 0; limen < 255; limen += 10) {
 		cv::Mat difImg = createDiffImg(grayRs, nir, date, num, limen);
+		cv::Mat segmentImg = kMeans(difImg);
+
 		cv::imshow("difImg" + std::to_string(limen) + ".png", difImg);
+		cv::imshow("segmentImg" + std::to_string(limen) + ".png", segmentImg);
+		cv::imwrite("data\\" + date + "\\" + num + "\\difImg" + "\\difImg" + std::to_string(limen) + ".png", difImg);
+		cv::imwrite("data\\" + date + "\\" + num + "\\K-means" + "\\segment" + std::to_string(limen) + ".png", segmentImg);
 	}
 	
 	cv::Mat segmentImg = kMeans(rs);
+	cv::Mat segmentGrayRsImg = kMeans(grayRs);
 
 	cv::imshow("rs", rs);
 	cv::imshow("grayRs", grayRs);
 	cv::imshow("nir", nir);
 	cv::imshow("segmentImg", segmentImg);
+	cv::imshow("segmentGrayRsImg", segmentGrayRsImg);
+	cv::imwrite("data\\" + date + "\\" + num +"\\K-means"+ "\\segmentRsImg.png", segmentImg);
 
 }
 
@@ -125,7 +133,7 @@ void createHistgram(std::string num){
 cv::Mat kMeans(cv::Mat src_img)
 {
 	std::cout << "0\n";
-	const int cluster_count = 4; /* number of cluster */
+	const int cluster_count = 3; /* number of cluster */
 	std::cout << "1\n";
 
 	// (1)load a specified file as a 3-channel color image
@@ -137,7 +145,9 @@ cv::Mat kMeans(cv::Mat src_img)
 	// (2)reshape the image to be a 1 column cv::Matrix 
 	cv::Mat points;
 	src_img.convertTo(points, CV_32FC3);
-	points = points.reshape(3, src_img.rows*src_img.cols);
+	//src_img.convertTo(points, CV_32FC1);
+	//points = points.reshape(3, src_img.rows*src_img.cols);
+	points = points.reshape(1, src_img.rows*src_img.cols);
 	std::cout << "3\n";
 
 	// (3)run k-means clustering algorithm to segment pixels in RGB color space
@@ -158,13 +168,8 @@ cv::Mat kMeans(cv::Mat src_img)
 		(*itd)[2] = cv::saturate_cast<uchar>(color[2]);
 	}
 	std::cout << "5\n";
-	/*
-	// (5)show source and destination image, and quit when any key pressed
-	cv::namedWindow("src_img", CV_WINDOW_AUTOSIZE);
-	imshow("src_img", src_img);
-	cv::namedWindow("dst_img", CV_WINDOW_AUTOSIZE);
-	imshow("dst_img", dst_img);
-	cv::waitKey(0);
-	*/
+	
+	std::cout << "clusters = " << clusters << std::endl;
+
 	return dst_img;
 }
