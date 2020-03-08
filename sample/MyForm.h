@@ -52,13 +52,18 @@ void coordiTransRs2NirAuto2();
 void coordiTransRs2NirPanTilt2();
 void getNirPanTilt();
 double cordiTransBagFile();
-void removeToFar();
+void removeToFar(std::string n);
 
 
 void testFileStorage();
 void calicTest();
 
-void estimateWater();
+void estimateWater(std::string num);
+void createHistgram(std::string num);
+cv::Mat kMeans(cv::Mat src_img);
+cv::Mat createDiffImg(cv::Mat grayRs, cv::Mat nir, std::string date, std::string num, int limen);
+
+
 
 namespace sample {
 	
@@ -279,6 +284,7 @@ private: System::Windows::Forms::Button^  button12;
 private: System::Windows::Forms::GroupBox^  groupBox3;
 private: System::Windows::Forms::GroupBox^  groupBox2;
 private: System::Windows::Forms::Button^  button2;
+private: System::Windows::Forms::ComboBox^  comboBox2;
 
 		 //private: System::Windows::Forms::Button^  calibreat;
 
@@ -365,6 +371,7 @@ private: System::Windows::Forms::Button^  button2;
 			this->pictureImage2 = (gcnew System::Windows::Forms::PictureBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PictureImage))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ShutterTime))->BeginInit();
@@ -472,7 +479,7 @@ private: System::Windows::Forms::Button^  button2;
 			// 
 			// button10
 			// 
-			this->button10->Location = System::Drawing::Point(225, 34);
+			this->button10->Location = System::Drawing::Point(296, 41);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(135, 43);
 			this->button10->TabIndex = 44;
@@ -1036,21 +1043,33 @@ private: System::Windows::Forms::Button^  button2;
 			// 
 			// groupBox3
 			// 
+			this->groupBox3->Controls->Add(this->comboBox2);
 			this->groupBox3->Controls->Add(this->button2);
 			this->groupBox3->Controls->Add(this->button9);
 			this->groupBox3->Controls->Add(this->button10);
 			this->groupBox3->Controls->Add(this->button11);
-			this->groupBox3->Location = System::Drawing::Point(366, 334);
+			this->groupBox3->Location = System::Drawing::Point(322, 334);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(387, 123);
+			this->groupBox3->Size = System::Drawing::Size(474, 123);
 			this->groupBox3->TabIndex = 31;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"coordinate transform realsense to nir";
 			this->groupBox3->Enter += gcnew System::EventHandler(this, &MyForm::groupBox3_Enter);
 			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(6) { L"1", L"2", L"3", L"4", L"5", L"getHist" });
+			this->comboBox2->Location = System::Drawing::Point(310, 12);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(121, 23);
+			this->comboBox2->TabIndex = 47;
+			this->comboBox2->Text = L"data number";
+			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox2_SelectedIndexChanged);
+			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(16, 93);
+			this->button2->Location = System::Drawing::Point(296, 90);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(129, 23);
 			this->button2->TabIndex = 46;
@@ -2113,7 +2132,13 @@ private: System::Windows::Forms::Button^  button2;
 
 
 		private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
-			removeToFar();
+			std::string num;
+			switch (comboBox2->SelectedIndex) {
+			case 0:
+				num = "1";
+				removeToFar(num);
+				break;
+			}
 		}
 
 
@@ -2128,7 +2153,7 @@ private: System::Windows::Forms::Button^  button2;
 			//testFileStorage();
 			//statusBarInfo->Text = String::Format(GetResourcesString(IDS_FpsFormat), rightRScalib());
 			//calicTest();
-			
+			//kMeans(cv::Mat src_img);
 		}
 
 		//‚È‚É‚à‚È‚­‚Ä‚¢‚¢H
@@ -2154,13 +2179,10 @@ private: System::Void CameraCombo_SelectedIndexChanged(System::Object^  sender, 
 }
 
 
-
+		 ///////////////////////      comboBox realsense       /////////////////////////////
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 
-
-
-///////////////////////      comboBox realsense       /////////////////////////////
 private: System::Void button12_Click(System::Object^  sender, System::EventArgs^  e) {
 	
 	switch (comboBox1->SelectedIndex) {
@@ -2180,17 +2202,45 @@ private: System::Void button12_Click(System::Object^  sender, System::EventArgs^
 
 }
 
-
-
-
-
 private: System::Void groupBox3_Enter(System::Object^  sender, System::EventArgs^  e) {
 }
 
 
+/////////////////////////////////   estimate water    ////////////////////////////////
+private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+}
 
 private: System::Void button2_Click_1(System::Object^  sender, System::EventArgs^  e) {
-	estimateWater();
+	std::string num;
+	switch (comboBox2->SelectedIndex)
+	{
+	case 0:
+		num = "1";
+		estimateWater(num);
+		break;
+	case 1:
+		num = "2";
+		estimateWater(num);
+		break;
+	case 2:
+		num = "3";
+		estimateWater(num);
+		break;
+	case 3:
+		num = "4";
+		estimateWater(num);
+		break;
+	case 4:
+		num = "5";
+		estimateWater(num);
+		break;
+	case 5:
+		num = "5";
+		createHistgram(num);
+		break;
+	}
+
+
 }
 
 

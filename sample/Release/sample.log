@@ -1,40 +1,86 @@
-﻿  estinateWater.cpp
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4005: '__CLR_VER': マクロが再定義されました。
+﻿  nirAndRs.cpp
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(1): warning C4005: '__CLR_VER': マクロが再定義されました。
   c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\stdafx.cpp: note: '__CLR_VER' の以前の定義を確認してください
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4651: '/D__CLR_VER=40804121' がプリコンパイル済みヘッダーに定義されていますが、現在のコンパイル処理には定義されていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(1): warning C4651: '/D__CLR_VER=40804121' がプリコンパイル済みヘッダーに定義されていますが、現在のコンパイル処理には定義されていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1850): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1851): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1945): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2000): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(92): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(322): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(477): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(709): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(862): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(1142): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(1334): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(105): warning C4793: cv::cuda::GpuMat::GpuMat': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(395): warning C4793: cv::cuda::HostMem::HostMem': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(561): warning C4793: cv::Mat::Mat': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(885): warning C4793: cv::Mat::release': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(2221): warning C4793: cv::SparseMat::addref': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(3821): warning C4793: cv::UMat::addref': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\ptr.inl.hpp(67): warning C4793: cv::detail::PtrOwner::incRef': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\ptr.inl.hpp(72): warning C4793: cv::detail::PtrOwner::decRef': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(657): warning C4793: cv::String::operator=': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(783): warning C4793: cv::Mat::operator=': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(885): warning C4793: cv::Mat::release': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000016) ('rs2_error') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000040) ('rs2_error') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000040) ('rs2_error') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (01000040) ('rs2_error') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000017) ('rs2_stream_profile') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000041) ('rs2_stream_profile') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000041) ('rs2_stream_profile') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (01000041) ('rs2_stream_profile') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000018) ('rs2_frame') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000042) ('rs2_frame') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000042) ('rs2_frame') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (01000042) ('rs2_frame') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000019) ('rs2_options') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000043) ('rs2_options') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000043) ('rs2_options') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (01000043) ('rs2_options') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (0100001B) ('rs2_processing_block') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000045) ('rs2_processing_block') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000045) ('rs2_processing_block') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (01000045) ('rs2_processing_block') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (0100001E) ('rs2_pipeline') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000046) ('rs2_pipeline') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000047) ('rs2_pipeline') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (01000046) ('rs2_pipeline') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (0100001F) ('rs2_config') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000047) ('rs2_config') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000048) ('rs2_config') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (01000047) ('rs2_config') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000020) ('rs2_pipeline_profile') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000048) ('rs2_pipeline_profile') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000049) ('rs2_pipeline_profile') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (01000048) ('rs2_pipeline_profile') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000022) ('rs2_context') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (0100004A) ('rs2_context') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (0100004B) ('rs2_context') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (0100004A) ('rs2_context') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000023) ('rs2_frame_queue') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (0100004B) ('rs2_frame_queue') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (0100004C) ('rs2_frame_queue') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (0100004B) ('rs2_frame_queue') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000027) ('rs2_stream_profile_list') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (0100004F) ('rs2_stream_profile_list') です。イメージを実行できません。
 MyForm.obj : warning LNK4248: 未解決の typeref トークン (01000050) ('rs2_stream_profile_list') です。イメージを実行できません。
+estinateWater.obj : warning LNK4248: 未解決の typeref トークン (0100004F) ('rs2_stream_profile_list') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (0100001A) ('rs2_device_list') です。イメージを実行できません。
 nirAndRs.obj : warning LNK4248: 未解決の typeref トークン (01000044) ('rs2_device_list') です。イメージを実行できません。
 realSense.obj : warning LNK4248: 未解決の typeref トークン (01000026) ('rs2_device') です。イメージを実行できません。

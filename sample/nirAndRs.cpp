@@ -1451,7 +1451,7 @@ double cordiTransBagFile() {
 #define MAP_HEIGHT 10
 #define MAP_WIDTH 10
 
-double m_Map[921600][6]; // csvデータ格納
+double m_Map[921600][6]; // csvデータ格納(1280*720)
 
 double stoi(std::string str) { // stoi関数の定義
 	double ret;
@@ -1463,43 +1463,55 @@ double stoi(std::string str) { // stoi関数の定義
 
 
 //3次元情報のぶっ飛んだ値を消す
-void iCsv() { // csvファイルのインポート
-	//cv::Mat img = cv::imread("C:\\Users\\yamak\\source\\repos\\jedi2\\coordiTransRs2Nir\\transedImg.png");
+void removeToFar(std::string n) { // csvファイルのインポート
 	
-	//cvtColor(img, img, CV_RGB2GRAY);
-
-	std::string n = "5";
-	std::ifstream ifs("pointCloud\\transedNir.csv");
+	std::ifstream ifs("data\\20200119\\"+n+"\\transedNir.csv");
 	//std::ifstream ifs("C:\\Users\\yamak\\Documents\\laboratory\\experiment\\nir統合\\aligned\\removeNoise" + n + ".csv");
 	std::string line;
 	int i;
 	i = 0;
 
-	std::ofstream pc("pointCloud\\removedTransedNir.csv");
+	std::ofstream pc("data\\20200119\\"+n+"\\removedTransedNir.csv");
 	//std::ofstream pc("C:\\Users\\yamak\\Documents\\laboratory\\experiment\\nir統合\\aligned\\removeNoise" + n + "-2.csv");
+	
+	cv::Mat removedRsImg = cv::Mat::zeros(720, 1280, CV_8UC1);
+
 	std::cout << "start brending\n";
-	while (getline(ifs, line)) {  //第１引数に入力ストリームを指定し、第２引数に受取り用の std::basic_string の変数を指定します。
-		
+	while (std::getline(ifs, line)) {  //第１引数に入力ストリームを指定し、第２引数に受取り用の std::basic_string の変数を指定します。
+		int x = i % removedRsImg.cols;
+		int y = i / removedRsImg.cols;
+		//std::cout << "( y, x ) = (" << y << ", " << x << ")\n";
+		std::cout << "line1 = " <<line<<"\n";
+
 		double num1, num2, num3,num4;
 		replace(line.begin(), line.end(), ',', ' ');
 		std::istringstream iss(line);
 		iss >> num1 >> num2 >> num3>>num4;
 		//std::cout << "num1=" << num1 << ", num2=" << num2 << ", num3=" << num3 << ", num4=" << num4 << std::endl;
 
-		if (num1<-1.5) {
+		if (num3<3) {
 			pc << num1 << "," << num2 << "," << num3 <<","<< num4<< "," << num4 << "," << num4 << std::endl;
+			//removedRsImg.at<uchar>(y, x) = num4;
+		}
+		else {
+			//removedRsImg.at<uchar>(y, x) = 255;
 		}
 
 		//pc << num1 << "," << num2 << "," << num3 <<","<< int(img.at<uchar>(y, x))<<"," << int(img.at<uchar>(y, x)) << "," << int(img.at<uchar>(y, x)) << std::endl;
-		i++;		
+		i++;
+		//cv::imshow("removedRsImg", removedRsImg);
+		//cv::waitKey(1);
 	}
+	std::cout << "i = " << i << std::endl;
+	//cv::imshow("removedRsImg", removedRsImg);
+	//cv::imwrite("data\\20200119\\" + n + "removedRsImg.png", removedRsImg);
 	std::cout << "finish import\n ";
 
 }
 
 
-void removeToFar() {
-	iCsv();
+void removeToFar2() {
+	//iCsv();
 	
 	/*
 	for (int i = 0; i < 100;i++) {
