@@ -55,14 +55,18 @@ double cordiTransBagFile();
 void removeToFar(std::string n);
 
 
-void testFileStorage();
-void calicTest();
+
 
 void estimateWater(std::string num);
-void createHistgram(std::string num);
+void createHistgram();
 cv::Mat kMeans(cv::Mat src_img);
 cv::Mat createDiffImg(cv::Mat grayRs, cv::Mat nir, std::string date, std::string num, int limen);
 
+
+void testFileStorage();
+void calicTest();
+void nitika();
+void blockNoise();
 
 
 namespace sample {
@@ -2176,11 +2180,8 @@ private: System::Windows::Forms::Button^  button3;
 
 		private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {// test function
 			int n = 0;
-			cordiTransBagFile();
-			//convCordiRs2Rs(n);
-			//supplyRsPipe(n);
-			//testFileStorage();
-			//statusBarInfo->Text = String::Format(GetResourcesString(IDS_FpsFormat), rightRScalib());
+			//nitika();
+			blockNoise();
 			//calicTest();
 			//kMeans(cv::Mat src_img);
 		}
@@ -2265,7 +2266,7 @@ private: System::Void button2_Click_1(System::Object^  sender, System::EventArgs
 		break;
 	case 5:
 		num = "5";
-		createHistgram(num);
+		createHistgram();
 		break;
 	}
 

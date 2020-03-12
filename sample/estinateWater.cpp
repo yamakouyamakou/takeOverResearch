@@ -78,53 +78,75 @@ cv::Mat createDiffImg(cv::Mat grayRs, cv::Mat nir, std::string date, std::string
 }
 
 
-void createHistgram(std::string num){
-	std::cout << "test\n";
+void createHistgram() {
+	//http://opencv.jp/opencv2-x-samples/color_histogram
+	// (1)load a source image as is
+	std::string num = "1";
 	std::string date = "20200119";
-	cv::Mat nir = cv::imread("data\\" + date + "\\" + num + "\\transedImg.png");
-
-	cv::Mat hist;
-	int hist_size = 256;
-	float range[] = { 0, 256 };
-	const float* hist_range = range;
-
-	cv::Mat channels[1];
-	cv::split(nir, channels);
-
-	/* 画素数を数える */
-	cv::calcHist(&channels[0], 1, 0, cv::Mat(), hist, 1, &hist_size, &hist_range);
-	/* 正規化 */
-
-	cv::normalize(hist, hist, 0.0, 1.0, cv::NORM_MINMAX, -1, cv::Mat());
-	/* ヒストグラム生成用の画像を作成 */
-	cv::Mat image_hist = cv::Mat(cv::Size(276, 320), CV_8UC3, cv::Scalar(255, 255, 255));
-
-
-
-	/* 背景を描画（見やすくするためにヒストグラム部分の背景をグレーにする） */
-	for (int i = 0; i < 3; i++) {
-		rectangle(image_hist, cv::Point(10, 10 + 100 * i),
-			cv::Point(265, 100 + 100 * i), cv::Scalar(230, 230, 230), -1);
-
-		/* ヒストグラムを描画 */
-		for (int i = 0; i < 256; i++) {
-			cv::line(image_hist, cv::Point(10 + i, 100),
-				cv::Point(10 + i, 100 - (int)(hist.at<float>(i) * 80)),
-				cv::Scalar(0, 0, 255), 1, 8, 0);
-			// 横軸10ずつラインを引く
-			if (i % 10 == 0) {
-				cv::line(image_hist, cv::Point(10 + i, 100), cv::Point(10 + i, 10),
-					cv::Scalar(170, 170, 170), 1, 8, 0);
-				if (i % 50 == 0) {
-					cv::line(image_hist, cv::Point(10 + i, 100), cv::Point(10 + i, 10),
-						cv::Scalar(50, 50, 50), 1, 8, 0);
-				}
-			}
-		}
+	cv::Mat src_img = cv::imread("data\\" + date + "\\" + num + "\\transedImg.png",0);
 	
-	
+
+	// (2)allocate Mat to draw a histogram image
+	const int ch_width = 260;
+	const int sch = src_img.channels();
+	cv::Mat hist_img(cv::Size(ch_width * sch, 200), CV_8UC3, cv::Scalar::all(255));
+
+	std::vector<cv::MatND> hist(3);//N-dimentional Matrix
+	const int hist_size = 256;
+	const int hdims[] = { hist_size };
+	const float hranges[] = { 0,256 };
+	const float* ranges[] = { hranges };
+	double max_val = .0;
+
+
+	if (sch == 1) {
+		// (3a)if the source image has single-channel, calculate its histogram
+		calcHist(&src_img, 1, 0, cv::Mat(), hist[0], 1, hdims, ranges, true, false);
+		minMaxLoc(hist[0], 0, &max_val);
 	}
-	cv::imshow("histgram", hist);  // ヒストグラム表示
+	else {
+		// (3b)if the souce image has multi-channel, calculate histogram of each plane
+		for (int i = 0; i < sch; ++i) {
+			calcHist(&src_img, 1, &i, cv::Mat(), hist[i], 1, hdims, ranges, true, false);
+			double tmp_val;
+			minMaxLoc(hist[i], 0, &tmp_val);
+			max_val = max_val < tmp_val ? tmp_val : max_val;
+		}
+	}
+
+	
+	std::cout << "hist[0] = " << hist[0] << std::endl;
+
+	int sum = 0;
+	for (int i = 0; i < hist[0].rows;i++) {
+		std::cout << i << std::endl;
+		std::cout << "hist[i] = " << hist[0].at<float>(i,0) << std::endl;
+		sum+=hist[0].at<float>(i, 0);
+	}
+	std::cout << "sum = " << sum << std::endl;
+
+
+	// (4)scale and draw the histogram(s)
+	cv::Scalar color = cv::Scalar::all(100);
+	for (int i = 0; i < sch; i++) {
+		if (sch == 3)
+			color = cv::Scalar((0xaa << i * 8) & 0x0000ff, (0xaa << i * 8) & 0x00ff00, (0xaa << i * 8) & 0xff0000, 0);
+		hist[i].convertTo(hist[i], hist[i].type(), max_val ? 200. / max_val : 0., 0);
+		for (int j = 0; j < hist_size; ++j) {
+			int bin_w = cv::saturate_cast<int>((double)ch_width / hist_size);//ある基本型から別の基本型への正確な変換のためのテンプレート関数．
+			rectangle(hist_img,
+				cv::Point(j*bin_w + (i*ch_width), hist_img.rows),
+				cv::Point((j + 1)*bin_w + (i*ch_width), hist_img.rows - cv::saturate_cast<int>(hist[i].at<float>(j))),
+				color, -1);
+		}
+	}
+
+
+	// (5)show the histogram iamge, and quit when any key pressed
+	cv::namedWindow("Image", CV_WINDOW_AUTOSIZE);
+	cv::namedWindow("Histogram", CV_WINDOW_AUTOSIZE);
+	cv::imshow("Image", src_img);
+	cv::imshow("Histogram", hist_img);
 	cv::waitKey(0);
 
 }
@@ -154,7 +176,7 @@ cv::Mat kMeans(cv::Mat src_img)
 	cv::Mat_<int> clusters(points.size(), CV_32SC1);
 	cv::Mat centers;
 	kmeans(points, cluster_count, clusters,
-		cvTermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 10, 1.0), 1, cv::KMEANS_PP_CENTERS, centers);
+		cvTermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 10, 1.0), 1, cv::KMEANS_PP_CENTERS, centers);//停止条件
 	std::cout << "4\n";
 
 	// (4)make a each centroid represent all pixels in the cluster
@@ -169,7 +191,43 @@ cv::Mat kMeans(cv::Mat src_img)
 	}
 	std::cout << "5\n";
 	
-	std::cout << "clusters = " << clusters << std::endl;
+	//std::cout << "clusters = " << clusters << std::endl;
 
 	return dst_img;
 }
+
+
+void nitika() {
+	std::string num = "1";
+	std::string date = "20200119";
+	cv::Mat nir = cv::imread("data\\" + date + "\\" + num + "\\removedNirImg.png", 0);
+	cv::imshow("nir", nir);
+
+	cv::Mat threshold;
+	cv::Mat thresholdAuto;
+	for (int limen = 0; limen < 255; limen+=10) {
+		cv::threshold(nir, threshold, limen, 255, CV_THRESH_BINARY);
+		cv::imshow("threshold" + std::to_string(limen), threshold );
+	}
+	cv::threshold(nir, thresholdAuto, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+	cv::imshow("threshold2", thresholdAuto);
+}
+
+
+
+void blockNoise() {
+	std::string num = "1";
+	std::string date = "20200119";
+	cv::Mat nir = cv::imread("data\\" + date + "\\" + num + "\\removedNirImg.png", 0);
+	cv::imshow("nir", nir);
+
+	cv::Mat blur;
+	cv::blur(nir, blur, cv::Size(3,3), cv::Size(-1, -1));
+
+	cv::imshow("blur", blur);
+}
+
+
+
+
+

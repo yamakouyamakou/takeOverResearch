@@ -2,10 +2,10 @@
 c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4005: '__CLR_VER': マクロが再定義されました。
   c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\stdafx.cpp: note: '__CLR_VER' の以前の定義を確認してください
 c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4651: '/D__CLR_VER=40804121' がプリコンパイル済みヘッダーに定義されていますが、現在のコンパイル処理には定義されていません。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1863): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1864): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1958): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2013): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1867): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1868): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1962): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2017): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(62): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
 c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました
@@ -18,6 +18,10 @@ c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(561): warning C4
 c:\dev\opencv346_win32\install\include\opencv2\core\fast_math.hpp(193): warning C4793: `anonymous namespace'::cvRound': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました
 c:\dev\opencv346_win32\install\include\opencv2\core\fast_math.hpp(194): warning C4793: `anonymous namespace'::cvRound': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\fast_math.hpp(105): warning C4793: `anonymous namespace'::cvRound': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\fast_math.hpp(106): warning C4793: `anonymous namespace'::cvRound': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました
 c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(885): warning C4793: cv::Mat::release': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました
