@@ -2,11 +2,12 @@
 c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4005: '__CLR_VER': マクロが再定義されました。
   c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\stdafx.cpp: note: '__CLR_VER' の以前の定義を確認してください
 c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4651: '/D__CLR_VER=40804121' がプリコンパイル済みヘッダーに定義されていますが、現在のコンパイル処理には定義されていません。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1867): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1868): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1962): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2017): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(62): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1884): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1885): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1979): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2034): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(120): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(221): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
 c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました
 c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(105): warning C4793: cv::cuda::GpuMat::GpuMat': ネイティブ関数としてコンパイルされました:

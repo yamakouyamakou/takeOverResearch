@@ -1,11 +1,12 @@
 #include"Stdafx.h"
-#include"iostream"
+#include<iostream>
 #include<map>
 #include<Eigen/Core>
 #include<Eigen/Dense>
 #include<fstream>
 #include <stdio.h>
 #include <string>
+#include <typeinfo>
 
 #include"MyForm.h"
 //#include"realsense.cpp"
@@ -1531,25 +1532,96 @@ void removeToFar(std::string n) { // csvファイルのインポート
 }
 
 
-void removeToFar2() {
-	//iCsv();
+
+//床面だけ残す
+void leaveFloor(std::string n) { // csvファイルのインポート
+
+	std::ifstream ifsRs("data\\20200119\\" + n + "\\rsRGB.csv");
 	
-	/*
-	for (int i = 0; i < 100;i++) {
-		std::cout << "m_Map[i]=" << m_Map[i][0]<<",  "<< m_Map[i][1] << ",  " << m_Map[i][2] << ",  " << m_Map[i][3] << std::endl;
+	std::ofstream pcNir("data\\20200119\\" + n + "\\floorTransedNir.csv");
+	std::ofstream pcRs("data\\20200119\\" + n + "\\floorRs.csv");
+	
+	cv::Mat floorNirImg = cv::Mat::zeros(720, 1280, CV_8UC1);
+	cv::Mat floorRsImg = cv::Mat::zeros(720, 1280, CV_8UC3);
+	cv::Mat floorRsgrayImg = cv::Mat::zeros(720, 1280, CV_8UC1);
+
+	cv::Mat nir = cv::imread("data\\20200119\\" + n + "\\transedImg.png", 0);
+	cv::Mat rs = cv::imread("data\\20200119\\" + n + "\\color.png");
+	cv::Mat rsgray = cv::imread("data\\20200119\\" + n + "\\color.png", 0);
+
+	std::string line;
+	int i;
+	i = 0;
+	std::cout << "start brending\n";
+	while (std::getline(ifsRs, line)) {  //第１引数に入力ストリームを指定し、第２引数に受取り用の std::basic_string の変数を指定します。
+		//std::getline(ifsNir, line2);
+		
+		int x = i % floorNirImg.cols;
+		int y = i / floorNirImg.cols;
+
+		double num1, num2, num3, num4, num5, num6;
+		replace(line.begin(), line.end(), ',', ' ');
+		std::istringstream iss(line);
+		iss >> num1 >> num2 >> num3 >> num4 >> num5 >> num6;
+		
+		//std::cout << "nir.at<uchar>(y, x) = "<< std::stoi(nir.at<uchar>(y, x)) <<std::endl;
+		/*
+		std::cout << "num4 の型名は "
+			<< typeid(num4).name() << " です。" << std::endl;
+		std::cout << "nir.at<uchar>(y, x) の型名は "
+			<< typeid( (double)nir.at<uchar>(y, x)).name() << " です。" << std::endl;
+		std::cout << "(double)nir.at<uchar>(y, x)).name() = " << (double)nir.at<uchar>(y, x) << std::endl;
+		std::cout << "nir.at<uchar>(y, x)) = " << nir.at<uchar>(y, x) << std::endl;
+		*/
+
+		//if文二つで画像も作ろう
+		if (num3 < 3 && num3>0) {
+			if (num2 < 0.5 && num2>-0.3) {
+				pcRs << num1 << "," << num2 << "," << num3 << "," << num4 << "," << num5 << "," << num6 << "," << std::endl;
+				pcNir << num1 << "," << num2 << "," << num3 << "," << (double)nir.at<uchar>(y, x) << "," << (double)nir.at<uchar>(y, x) << "," << (double)nir.at<uchar>(y, x) << "," << std::endl;
+				//pcNir << num1 << "," << num2 << "," << num3 << "," << std::endl;
+				floorNirImg.at<uchar>(y, x) = nir.at<uchar>(y, x);
+				floorRsImg.at<cv::Vec3b>(y, x)[0] = rs.at<cv::Vec3b>(y, x)[0];
+				floorRsImg.at<cv::Vec3b>(y, x)[1] = rs.at<cv::Vec3b>(y, x)[1];
+				floorRsImg.at<cv::Vec3b>(y, x)[2] = rs.at<cv::Vec3b>(y, x)[2];
+				floorRsgrayImg.at<uchar>(y, x) = rsgray.at<uchar>(y, x);
+			}
+			else {
+				floorNirImg.at<uchar>(y, x) = 255;
+				floorRsImg.at<cv::Vec3b>(y, x)[0] = 255;
+				floorRsImg.at<cv::Vec3b>(y, x)[1] = 255;
+				floorRsImg.at<cv::Vec3b>(y, x)[2] = 255;
+				floorRsgrayImg.at<uchar>(y, x) = 255;
+			}
+		}
+		else {
+			floorNirImg.at<uchar>(y, x) = 255;
+			floorRsImg.at<cv::Vec3b>(y, x)[0] = 255;
+			floorRsImg.at<cv::Vec3b>(y, x)[1] = 255;
+			floorRsImg.at<cv::Vec3b>(y, x)[2] = 255;
+			floorRsgrayImg.at<uchar>(y, x) = 255;
+		}
+		//pc << num1 << "," << num2 << "," << num3 <<","<< int(img.at<uchar>(y, x))<<"," << int(img.at<uchar>(y, x)) << "," << int(img.at<uchar>(y, x)) << std::endl;
+		i++;
+		//cv::imshow("removedNirImg", removedNirImg);
+		//cv::waitKey(1);
 	}
+	std::cout << "end rs\n";
 
-	cv::Mat Abrend = cv::imread("coordiTransRs2Nir\\transedImg.png");
 
-	//std::cout<< "m_Map.total()=" << m_Map.size() <<std::endl;
-	std::cout<< "Abrend.total()=" << Abrend.total() <<std::endl;
 
-	std::ofstream AbrendPC("pointCloud\\Abrend.csv");
-	for (int i = 0; i < Abrend.total();i++) {
-		//AbrendPC << m_Map[i][0] << "," << m_Map[i][1] << "," << m_Map[i][2] << "," << Abrend.data[i];
-		AbrendPC << m_Map[i][0] << "," << m_Map[i][1] << "," << m_Map[i][2] << std::endl;
 
-	}
-	*/
-	std::cout << "finish\n";
+
+
+	std::cout << "i = " << i << std::endl;
+	cv::imshow("floorNirImg", floorNirImg);
+	cv::imshow("floorRsImg", floorRsImg);
+	cv::imshow("floorRsgrayImg", floorRsgrayImg);
+	cv::imwrite("data\\20200119\\" + n + "\\floorNirImg.png", floorNirImg);
+	cv::imwrite("data\\20200119\\" + n + "\\floorRsImg.png", floorRsImg);
+	cv::imwrite("data\\20200119\\" + n + "\\floorRsgrayImg.png", floorRsgrayImg);
+	std::cout << "finish import\n ";
+
 }
+
+
