@@ -60,8 +60,6 @@ void removeToFar(std::string n);
 
 void estimateWater(std::string num);
 std::tuple<std::vector<cv::MatND>, cv::Mat > createHistgram( cv::Mat src_img);
-cv::Mat kMeans(cv::Mat src_img);
-cv::Mat createDiffImg(cv::Mat grayRs, cv::Mat nir, std::string date, std::string num, int limen);
 void leaveFloor(std::string n);
 cv::Mat coloring(cv::Mat floorNirImg, cv::Mat estimateNirImg, std::string num, std::string date, cv::Point max);
 void decisionLimen();
@@ -295,6 +293,8 @@ private: System::Windows::Forms::Button^  button2;
 private: System::Windows::Forms::ComboBox^  comboBox2;
 private: System::Windows::Forms::Button^  button3;
 private: System::Windows::Forms::Button^  button5;
+private: System::Windows::Forms::GroupBox^  groupBox4;
+private: System::Windows::Forms::Button^  button6;
 
 		 //private: System::Windows::Forms::Button^  calibreat;
 
@@ -316,11 +316,11 @@ private: System::Windows::Forms::Button^  button5;
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			System::Windows::Forms::TreeNode^  treeNode6 = (gcnew System::Windows::Forms::TreeNode(L"Record"));
-			System::Windows::Forms::TreeNode^  treeNode7 = (gcnew System::Windows::Forms::TreeNode(L"Continuous2", gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode6 }));
-			System::Windows::Forms::TreeNode^  treeNode8 = (gcnew System::Windows::Forms::TreeNode(L"Convert Mode"));
-			System::Windows::Forms::TreeNode^  treeNode9 = (gcnew System::Windows::Forms::TreeNode(L"FAN-OFF"));
-			System::Windows::Forms::TreeNode^  treeNode10 = (gcnew System::Windows::Forms::TreeNode(L"CSV(Excel)"));
+			System::Windows::Forms::TreeNode^  treeNode1 = (gcnew System::Windows::Forms::TreeNode(L"Record"));
+			System::Windows::Forms::TreeNode^  treeNode2 = (gcnew System::Windows::Forms::TreeNode(L"Continuous2", gcnew cli::array< System::Windows::Forms::TreeNode^  >(1) { treeNode1 }));
+			System::Windows::Forms::TreeNode^  treeNode3 = (gcnew System::Windows::Forms::TreeNode(L"Convert Mode"));
+			System::Windows::Forms::TreeNode^  treeNode4 = (gcnew System::Windows::Forms::TreeNode(L"FAN-OFF"));
+			System::Windows::Forms::TreeNode^  treeNode5 = (gcnew System::Windows::Forms::TreeNode(L"CSV(Excel)"));
 			this->PictureImage = (gcnew System::Windows::Forms::PictureBox());
 			this->CoolerTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->CameraConnect = (gcnew System::Windows::Forms::Button());
@@ -385,6 +385,8 @@ private: System::Windows::Forms::Button^  button5;
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PictureImage))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ShutterTime))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->statusBarInfo))->BeginInit();
@@ -405,6 +407,7 @@ private: System::Windows::Forms::Button^  button5;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureImage2))->BeginInit();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
+			this->groupBox4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// PictureImage
@@ -457,7 +460,7 @@ private: System::Windows::Forms::Button^  button5;
 			// button11
 			// 
 			this->button11->Enabled = false;
-			this->button11->Location = System::Drawing::Point(16, 63);
+			this->button11->Location = System::Drawing::Point(179, 29);
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(116, 23);
 			this->button11->TabIndex = 45;
@@ -469,7 +472,7 @@ private: System::Windows::Forms::Button^  button5;
 			// button9
 			// 
 			this->button9->Enabled = false;
-			this->button9->Location = System::Drawing::Point(6, 34);
+			this->button9->Location = System::Drawing::Point(16, 29);
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(139, 23);
 			this->button9->TabIndex = 43;
@@ -491,7 +494,7 @@ private: System::Windows::Forms::Button^  button5;
 			// 
 			// button10
 			// 
-			this->button10->Location = System::Drawing::Point(359, 9);
+			this->button10->Location = System::Drawing::Point(147, 21);
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(135, 26);
 			this->button10->TabIndex = 44;
@@ -915,24 +918,24 @@ private: System::Windows::Forms::Button^  button5;
 			this->TreeView->Location = System::Drawing::Point(292, 29);
 			this->TreeView->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->TreeView->Name = L"TreeView";
-			treeNode6->Name = L"RecordMode";
-			treeNode6->Text = L"Record";
-			treeNode6->ToolTipText = L"Set the number of sheets to record it";
-			treeNode7->Name = L"ContinueMode2";
-			treeNode7->Text = L"Continuous2";
-			treeNode7->ToolTipText = L"Use it if you want to display consecutive images";
-			treeNode8->Name = L"Convert";
-			treeNode8->Text = L"Convert Mode";
-			treeNode8->ToolTipText = L"When you do not check it, the camera converts an image automatically";
-			treeNode9->Name = L"FanMode";
-			treeNode9->Text = L"FAN-OFF";
-			treeNode9->ToolTipText = L"When you check here, exposure begins after a fan stopped for five seconds";
-			treeNode10->Name = L"ExcelMode";
-			treeNode10->Text = L"CSV(Excel)";
-			treeNode10->ToolTipText = L"I can start excel if csv is connected with excel";
+			treeNode1->Name = L"RecordMode";
+			treeNode1->Text = L"Record";
+			treeNode1->ToolTipText = L"Set the number of sheets to record it";
+			treeNode2->Name = L"ContinueMode2";
+			treeNode2->Text = L"Continuous2";
+			treeNode2->ToolTipText = L"Use it if you want to display consecutive images";
+			treeNode3->Name = L"Convert";
+			treeNode3->Text = L"Convert Mode";
+			treeNode3->ToolTipText = L"When you do not check it, the camera converts an image automatically";
+			treeNode4->Name = L"FanMode";
+			treeNode4->Text = L"FAN-OFF";
+			treeNode4->ToolTipText = L"When you check here, exposure begins after a fan stopped for five seconds";
+			treeNode5->Name = L"ExcelMode";
+			treeNode5->Text = L"CSV(Excel)";
+			treeNode5->ToolTipText = L"I can start excel if csv is connected with excel";
 			this->TreeView->Nodes->AddRange(gcnew cli::array< System::Windows::Forms::TreeNode^  >(4) {
-				treeNode7, treeNode8, treeNode9,
-					treeNode10
+				treeNode2, treeNode3, treeNode4,
+					treeNode5
 			});
 			this->TreeView->ShowNodeToolTips = true;
 			this->TreeView->Size = System::Drawing::Size(507, 100);
@@ -1046,7 +1049,7 @@ private: System::Windows::Forms::Button^  button5;
 			// 
 			this->groupBox2->Controls->Add(this->button12);
 			this->groupBox2->Controls->Add(this->comboBox1);
-			this->groupBox2->Location = System::Drawing::Point(19, 334);
+			this->groupBox2->Location = System::Drawing::Point(19, 321);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(288, 65);
 			this->groupBox2->TabIndex = 30;
@@ -1055,16 +1058,11 @@ private: System::Windows::Forms::Button^  button5;
 			// 
 			// groupBox3
 			// 
-			this->groupBox3->Controls->Add(this->button5);
-			this->groupBox3->Controls->Add(this->button3);
-			this->groupBox3->Controls->Add(this->comboBox2);
-			this->groupBox3->Controls->Add(this->button2);
 			this->groupBox3->Controls->Add(this->button9);
-			this->groupBox3->Controls->Add(this->button10);
 			this->groupBox3->Controls->Add(this->button11);
-			this->groupBox3->Location = System::Drawing::Point(322, 334);
+			this->groupBox3->Location = System::Drawing::Point(322, 319);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(503, 123);
+			this->groupBox3->Size = System::Drawing::Size(317, 67);
 			this->groupBox3->TabIndex = 31;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"coordinate transform realsense to nir";
@@ -1072,7 +1070,7 @@ private: System::Windows::Forms::Button^  button5;
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(359, 38);
+			this->button5->Location = System::Drawing::Point(290, 19);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(135, 27);
 			this->button5->TabIndex = 49;
@@ -1082,7 +1080,7 @@ private: System::Windows::Forms::Button^  button5;
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(359, 93);
+			this->button3->Location = System::Drawing::Point(583, 20);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(129, 23);
 			this->button3->TabIndex = 48;
@@ -1094,7 +1092,7 @@ private: System::Windows::Forms::Button^  button5;
 			// 
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(5) { L"1", L"2", L"3", L"4", L"5" });
-			this->comboBox2->Location = System::Drawing::Point(210, 28);
+			this->comboBox2->Location = System::Drawing::Point(15, 21);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(121, 23);
 			this->comboBox2->TabIndex = 47;
@@ -1103,7 +1101,7 @@ private: System::Windows::Forms::Button^  button5;
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(359, 66);
+			this->button2->Location = System::Drawing::Point(435, 20);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(129, 23);
 			this->button2->TabIndex = 46;
@@ -1111,11 +1109,38 @@ private: System::Windows::Forms::Button^  button5;
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click_1);
 			// 
+			// groupBox4
+			// 
+			this->groupBox4->Controls->Add(this->comboBox2);
+			this->groupBox4->Controls->Add(this->button3);
+			this->groupBox4->Controls->Add(this->button10);
+			this->groupBox4->Controls->Add(this->button2);
+			this->groupBox4->Controls->Add(this->button5);
+			this->groupBox4->Location = System::Drawing::Point(19, 392);
+			this->groupBox4->Name = L"groupBox4";
+			this->groupBox4->Size = System::Drawing::Size(734, 53);
+			this->groupBox4->TabIndex = 50;
+			this->groupBox4->TabStop = false;
+			this->groupBox4->Text = L"groupBox4";
+			this->groupBox4->Enter += gcnew System::EventHandler(this, &MyForm::groupBox4_Enter);
+			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(681, 340);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(115, 38);
+			this->button6->TabIndex = 51;
+			this->button6->Text = L"createHistgram(.csv,.png)";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click_1);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1153, 890);
+			this->Controls->Add(this->button6);
+			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->pictureImage2);
@@ -1161,6 +1186,7 @@ private: System::Windows::Forms::Button^  button5;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureImage2))->EndInit();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox3->ResumeLayout(false);
+			this->groupBox4->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -2199,10 +2225,7 @@ private: System::Windows::Forms::Button^  button5;
 			int n = 0;
 			
 			decisionLimen();
-				//nitika();
-			//blockNoise();
-			//calicTest();
-			//kMeans(cv::Mat src_img);
+							//calicTest();
 		}
 
 		//Ç»Ç…Ç‡Ç»Ç≠ÇƒÇ¢Ç¢ÅH
@@ -2350,6 +2373,16 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 
 
 
+
+
+
+private: System::Void groupBox4_Enter(System::Object^  sender, System::EventArgs^  e) {
+}
+
+
+private: System::Void button6_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	decisionLimen();
+}
 
 
 

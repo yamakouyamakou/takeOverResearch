@@ -1,13 +1,60 @@
-﻿  estinateWater.cpp
+﻿  MyForm.cpp
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.cpp(3): warning C4005: '__CLR_VER': マクロが再定義されました。
+  c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\stdafx.cpp: note: '__CLR_VER' の以前の定義を確認してください
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.cpp(3): warning C4651: '/D__CLR_VER=40804121' がプリコンパイル済みヘッダーに定義されていますが、現在のコンパイル処理には定義されていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1910): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1911): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2005): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2060): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  estinateWater.cpp
 c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4005: '__CLR_VER': マクロが再定義されました。
   c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\stdafx.cpp: note: '__CLR_VER' の以前の定義を確認してください
 c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(2): warning C4651: '/D__CLR_VER=40804121' がプリコンパイル済みヘッダーに定義されていますが、現在のコンパイル処理には定義されていません。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1884): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1885): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1979): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2034): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(120): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
-c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(221): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1910): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1911): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2005): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2060): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\estinatewater.cpp(92): warning C4018: '>': signed と unsigned の数値を比較しようとしました。
+  nirAndRs.cpp
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(1): warning C4005: '__CLR_VER': マクロが再定義されました。
+  c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\stdafx.cpp: note: '__CLR_VER' の以前の定義を確認してください
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(1): warning C4651: '/D__CLR_VER=40804121' がプリコンパイル済みヘッダーに定義されていますが、現在のコンパイル処理には定義されていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1910): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(1911): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2005): warning C4101: 'key2': ローカル変数は 1 度も使われていません。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\myform.h(2060): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(93): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(323): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(478): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(710): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(863): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(1143): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\yamak\source\repos\takeoverresearch\takeoverresearch\sample\nirandrs.cpp(1335): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  コードを生成中...
+c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(105): warning C4793: cv::cuda::GpuMat::GpuMat': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(395): warning C4793: cv::cuda::HostMem::HostMem': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(561): warning C4793: cv::Mat::Mat': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(885): warning C4793: cv::Mat::release': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(2221): warning C4793: cv::SparseMat::addref': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(3821): warning C4793: cv::UMat::addref': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\ptr.inl.hpp(67): warning C4793: cv::detail::PtrOwner::incRef': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\ptr.inl.hpp(72): warning C4793: cv::detail::PtrOwner::decRef': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(657): warning C4793: cv::String::operator=': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(783): warning C4793: cv::Mat::operator=': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(885): warning C4793: cv::Mat::release': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
 c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました
 c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(105): warning C4793: cv::cuda::GpuMat::GpuMat': ネイティブ関数としてコンパイルされました:
@@ -23,6 +70,26 @@ c:\dev\opencv346_win32\install\include\opencv2\core\fast_math.hpp(194): warning 
 c:\dev\opencv346_win32\install\include\opencv2\core\fast_math.hpp(105): warning C4793: `anonymous namespace'::cvRound': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました
 c:\dev\opencv346_win32\install\include\opencv2\core\fast_math.hpp(106): warning C4793: `anonymous namespace'::cvRound': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(885): warning C4793: cv::Mat::release': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(2221): warning C4793: cv::SparseMat::addref': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(3821): warning C4793: cv::UMat::addref': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\ptr.inl.hpp(67): warning C4793: cv::detail::PtrOwner::incRef': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\ptr.inl.hpp(72): warning C4793: cv::detail::PtrOwner::decRef': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(657): warning C4793: cv::String::operator=': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cvstd.hpp(575): warning C4793: cv::String::String': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(105): warning C4793: cv::cuda::GpuMat::GpuMat': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\cuda.inl.hpp(395): warning C4793: cv::cuda::HostMem::HostMem': ネイティブ関数としてコンパイルされました:
+  	マネージド コードでサポートされていない組み込み型が見つかりました
+c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(561): warning C4793: cv::Mat::Mat': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました
 c:\dev\opencv346_win32\install\include\opencv2\core\mat.inl.hpp(885): warning C4793: cv::Mat::release': ネイティブ関数としてコンパイルされました:
   	マネージド コードでサポートされていない組み込み型が見つかりました

@@ -40,14 +40,6 @@ void estimateWater(std::string num){
 	std::cout << "maxP = " << maxP << std::endl;// Ç±Ç±Ç≈Ç‡Ç∆ÇﬂÇΩÅi0,44ÅjÇ¬Ç‹ÇË44à»â∫ÇÃâÊëfÇêFê}ÇØÇ∑ÇÈ
 	///////////////////////////////////////////////////////////////////////////
 	
-	//ê≥ãKâª
-	//cv::Mat normalized = cv::Mat::zeros(cv::Size(1280,702), CV_8UC1);
-	//cv::normalize(nir, normalized, 0, 255, CV_MINMAX);
-	//cv::Point max_pt;
-	//double maxVal;
-	//cv::minMaxLoc(grayRs, NULL, &maxVal, NULL, &max_pt);
-	//std::cout << "maxVal = " << maxVal << std::endl;
-	
 
 	std::cout << "maxP.y = " << maxP.y << std::endl;
 	cv::Mat floorNir = cv::imread("data\\" + date + "\\" + num + "\\floorNirImg.png",0 );
@@ -55,31 +47,11 @@ void estimateWater(std::string num){
 
 	estimateNirImg = coloring(floorNir,estimateNirImg,num,date,maxP);
 	
-	
-
-	/*
-	for (int limen = 0; limen < 255; limen += 10) {
-		cv::Mat difImg = createDiffImg(grayRs, nir, date, num, limen);
-		cv::Mat segmentImg = kMeans(difImg);
-
-		cv::imshow("difImg" + std::to_string(limen) + ".png", difImg);
-		cv::imshow("segmentImg" + std::to_string(limen) + ".png", segmentImg);
-		cv::imwrite("data\\" + date + "\\" + num + "\\difImg" + "\\difImg" + std::to_string(limen) + ".png", difImg);
-		cv::imwrite("data\\" + date + "\\" + num + "\\K-means" + "\\segment" + std::to_string(limen) + ".png", segmentImg);
-	}
-	*/
-
-	cv::Mat segmentImg = kMeans(rs);
-	cv::Mat segmentGrayRsImg = kMeans(grayRs);
-
 	cv::imshow("rs", rs);
 	cv::imshow("grayRs", grayRs);
 	cv::imshow("nir", nir);
-	cv::imshow("segmentImg", segmentImg);
-	cv::imshow("segmentGrayRsImg", segmentGrayRsImg);
 	cv::imshow("floorNirImg", floorNir);
 	cv::imshow("estimateNirImg", estimateNirImg);
-	cv::imwrite("data\\" + date + "\\" + num +"\\K-means"+ "\\segmentRsImg.png", segmentImg);
 	cv::imwrite("data\\" + date + "\\" + num + "\\estimateNirImg.png", estimateNirImg);
 
 }
@@ -213,29 +185,6 @@ void decisionLimen() {
 }
 
 
-cv::Mat createDiffImg(cv::Mat grayRs, cv::Mat nir, std::string date, std::string num, int limen) {
-
-	//for (int limen = 0; limen < 255; limen += 10) {
-
-	cv::Mat difImg = cv::Mat::zeros(720, 1280, CV_8UC1);
-	for (int n = 0; grayRs.total() > n; n++) {
-		int x = n % grayRs.cols;
-		int y = n / grayRs.cols;
-
-		int dif = int(grayRs.at<uchar>(y, x)) - int(nir.at<uchar>(y, x));
-
-		if (dif > limen) {
-			difImg.at<uchar>(y, x) = dif;
-		}
-	}
-	//cv::imwrite("data\\" + date + "\\" + num + "\\diff" + std::to_string(limen) + ".png", difImg);
-	//cv::imshow("difImg" + std::to_string(limen) + ".png", difImg);
-	//cv::waitKey(1);
-
-	return difImg;
-	//}
-}
-
 
 
 //ÉqÉXÉgÉOÉâÉÄçÏÇÈ
@@ -317,78 +266,6 @@ std::tuple<std::vector<cv::MatND>, cv::Mat > createHistgram( cv::Mat src_img) {
 
 	//return hist;
 	return std::forward_as_tuple(hist, hist_img);
-}
-
-
-
-
-cv::Mat kMeans(cv::Mat src_img)
-{
-	const int cluster_count = 3; /* number of cluster */
-	
-	// (1)load a specified file as a 3-channel color image
-	//cv::Mat src_img = cv::imread("data\\20200119\\5\\color.png");
-	if (!src_img.data)
-		return src_img;
-	
-	// (2)reshape the image to be a 1 column cv::Matrix 
-	cv::Mat points;
-	src_img.convertTo(points, CV_32FC3);
-	//src_img.convertTo(points, CV_32FC1);
-	//points = points.reshape(3, src_img.rows*src_img.cols);
-	points = points.reshape(1, src_img.rows*src_img.cols);
-	
-	// (3)run k-means clustering algorithm to segment pixels in RGB color space
-	cv::Mat_<int> clusters(points.size(), CV_32SC1);
-	cv::Mat centers;
-	kmeans(points, cluster_count, clusters,
-		cvTermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 10, 1.0), 1, cv::KMEANS_PP_CENTERS, centers);//í‚é~èåè
-	
-	// (4)make a each centroid represent all pixels in the cluster
-	cv::Mat dst_img(src_img.size(), src_img.type());
-	cv::MatIterator_<cv::Vec3f> itf = centers.begin<cv::Vec3f>();
-	cv::MatIterator_<cv::Vec3b> itd = dst_img.begin<cv::Vec3b>(), itd_end = dst_img.end<cv::Vec3b>();
-	for (int i = 0; itd != itd_end; ++itd, ++i) {
-		cv::Vec3f color = itf[clusters(1, i)];
-		(*itd)[0] = cv::saturate_cast<uchar>(color[0]);
-		(*itd)[1] = cv::saturate_cast<uchar>(color[1]);
-		(*itd)[2] = cv::saturate_cast<uchar>(color[2]);
-	}
-	
-	//std::cout << "clusters = " << clusters << std::endl;
-
-	return dst_img;
-}
-
-
-void nitika() {
-	std::string num = "1";
-	std::string date = "20200119";
-	cv::Mat nir = cv::imread("data\\" + date + "\\" + num + "\\removedNirImg.png", 0);
-	cv::imshow("nir", nir);
-
-	cv::Mat threshold;
-	cv::Mat thresholdAuto;
-	for (int limen = 0; limen < 255; limen+=10) {
-		cv::threshold(nir, threshold, limen, 255, CV_THRESH_BINARY);
-		cv::imshow("threshold" + std::to_string(limen), threshold );
-	}
-	cv::threshold(nir, thresholdAuto, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
-	cv::imshow("threshold2", thresholdAuto);
-}
-
-
-
-void blockNoise() {
-	std::string num = "1";
-	std::string date = "20200119";
-	cv::Mat nir = cv::imread("data\\" + date + "\\" + num + "\\removedNirImg.png", 0);
-	cv::imshow("nir", nir);
-
-	cv::Mat blur;
-	cv::blur(nir, blur, cv::Size(3,3), cv::Size(-1, -1));
-
-	cv::imshow("blur", blur);
 }
 
 
